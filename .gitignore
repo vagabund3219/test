@@ -1,4 +1,5 @@
 lib
 .vercel
 .env
-
+env
+media
