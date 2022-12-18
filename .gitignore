@@ -2,4 +2,4 @@ lib
 .vercel
 .env
 env
-staticfiles_build/
+staticfiles_build
