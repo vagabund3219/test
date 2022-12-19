@@ -87,7 +87,7 @@ REST_FRAMEWORK = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-#
+# 
 # DATABASES['default'] = dj_database_url.config()
 DATABASE_URL = "postgresql://postgres:YvEXoyP4InI76EL2Y6ik@containers-us-west-178.railway.app:6147/railway"
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
