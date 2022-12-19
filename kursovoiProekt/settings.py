@@ -81,14 +81,16 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-DATABASES['default'] = dj_database_url.config()
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+#
+# DATABASES['default'] = dj_database_url.config()
+DATABASE_URL = "postgresql://postgres:YvEXoyP4InI76EL2Y6ik@containers-us-west-178.railway.app:6147/railway"
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 DATE_FORMAT = ['%d.%m.%Y']
