@@ -1,12 +1,11 @@
-<<<<<<< HEAD
+
 lib
 .vercel
 .env
 env
-=======
 *.env
 bin/
 lib/
 *.sqlite3
 .vercel
->>>>>>> oktak
+
