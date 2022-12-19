@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(default='postgresql://postgres:iJGddO7tcJFD2EMcde6t@containers-us-west-165.railway.app:6945/railway',)
+DATABASES['default'] = dj_database_url.config()
 
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 DATE_FORMAT = ['%d.%m.%Y']
