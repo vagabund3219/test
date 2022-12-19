@@ -1,11 +1,12 @@
 
-lib
-.vercel
-.env
-env
-*.env
+#lib
+#.vercel
+#.env
+#env
+#*.env
+#
+#lib/
+#*.sqlite3
+#.vercel
 
-lib/
-*.sqlite3
 .vercel
-
