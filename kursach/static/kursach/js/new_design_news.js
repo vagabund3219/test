@@ -47,6 +47,7 @@ function removeComma(tag){
 }
 
 function createNewsCard(title, subtitle, description, tags, img){
+    console.log(img , 'img')
     const style = ['projcard-blue', 'projcard-red', 'projcard-green']
     const currentStyle = style[getRandomInt(3)]
     const newCard = `

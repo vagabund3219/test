@@ -59,8 +59,6 @@ export async function addCheckForm(){
                     const reader = new FileReader();
                     reader.addEventListener('load', (event) => {
                         const result = event.target.result;
-
-
                         sendCheck(result)
                     });
                 reader.readAsDataURL(filee);
@@ -72,50 +70,99 @@ export async function addCheckForm(){
 
 
 
+    // async function sendCheck(par){
+    //     const url = 'https://proverkacheka.com/api/v1/check/get';
+    //     // const token = '17072.ReLJYknAYHiPk5ohg';
+    //     // const token = '17975.feEzZQlH2W8acWoqk';
+    //     const token = '18476.J6BXgVvPGjcrDhbys';
+    //
+    //     // fetch('http://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
+    //     fetch('https://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             const checkResponse = res[0]['symbol'][0]['data']
+    //             // var url = "https://proverkacheka.com/api/v1/check/get";
+    //             var xhr = new XMLHttpRequest();
+    //             xhr.open("POST", url);
+    //             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //             // xhr.setRequestHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+    //             // xhr.setRequestHeader("Origin", "127.32.23.3:8080");
+    //
+    //             xhr.onreadystatechange = function () {
+    //                if (xhr.readyState === 4) {
+    //                   console.log(xhr.status);
+    //                   console.log(xhr.responseText);
+    //                   if (xhr.status===200){
+    //                       try{
+    //                           for (item of xhr.responseText["data"]['json']['items']){
+    //                               console.log(item)
+    //                               console.log(xhr.responseText)
+    //                           }
+    //                       }catch (e){
+    //
+    //                       }
+    //                   }
+    //                }};
+    //
+    //             // var data = `${checkResponse}&token=${token}`;
+    //             var data = `qrfile=${par}&token=${token}`;
+    //
+    //             xhr.send(data)
+    //         })
+    // }
+
+
+
     async function sendCheck(par){
         const url = 'https://proverkacheka.com/api/v1/check/get';
-        // const token = '17072.ReLJYknAYHiPk5ohg';
-        // const token = '17975.feEzZQlH2W8acWoqk';
         const token = '18476.J6BXgVvPGjcrDhbys';
-
-        // fetch('http://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
-        // fetch('https://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
-        //     .then(res => res.json())
-        //     .then(res => {
-
-
-
-                // const checkResponse = res[0]['symbol'][0]['data']
-                // var url = "https://proverkacheka.com/api/v1/check/get";
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", url);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                // xhr.setRequestHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-                // xhr.setRequestHeader("Origin", "127.32.23.3:8080");
-                xhr.onreadystatechange = function () {
-                   if (xhr.readyState === 4) {
-                      console.log(xhr.status);
-                      console.log(xhr.responseText);
-                      if (xhr.status===200){
-                          try{
-                              for (item of xhr.responseText["data"]['json']['items']){
-                                  console.log(item)
-                                  console.log(xhr.responseText)
-                                  document.body.innerHTML +=`<h1>${xhr.responseText}</h1>`
-                              }
-                          }catch (e){
-
-                          }
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+           if (xhr.readyState === 4) {
+              console.log(xhr.status);
+              console.log(xhr.responseText);
+              if (xhr.status===200){
+                  try{
+                      console.log('norm')
+                      for (item of xhr.responseText["data"]['json']['items']){
+                          console.log(item)
+                          console.log(xhr.responseText)
                       }
-                   }};
-
-                // var data = `${checkResponse}&token=${token}`;
-                var data = `qrfile=${par}&token=${token}`;
-
-                xhr.send(data)
-            // })
-
-
+                  }catch (e){
+                      console.log('error')
+                  }
+              }
+           }};
+        // const files = {
+        //     'qrfile': par
+        // }
+        // let dat = {
+        //     'token': token
+        // }
+        // qrfile=${par}&token=${token}
+        let data=`token=${token}&qrurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/`
+        xhr.send(data)
     }
+
+
+
+
+
+// async function sendCheck(par){
+//         let bodyReq = {
+//             "qrfile":'t=20190202T1044&s=476.00&fn=9289000100054082&i=16112&fp=399448105&n=1',
+//             'token':'18476.J6BXgVvPGjcrDhbys'
+//         }
+//         fetch('https://proverkacheka.com/api/v1/check/get', {
+//             'method': 'POST',
+//             'body': JSON.stringify(bodyReq),
+//             'headers': {
+//                  'Content-Type': 'application/x-www-form-urlencoded'
+//             }
+//         }).then(resp=>resp.json()).then(resp=>console.log(resp))
+//     }
+
 
 
