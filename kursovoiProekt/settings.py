@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vu_o=r4vsmdnuj5_yo$tm%7fszswnoz5o2bct&_*usmg#5we-s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'https://test19-ebon.vercel.app/', 'https://test19-hwht593ms-vagabund3219.vercel.app/']
 
 
 # Application definition
@@ -87,9 +87,9 @@ REST_FRAMEWORK = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# 
+#
 # DATABASES['default'] = dj_database_url.config()
-DATABASE_URL = "postgresql://postgres:YvEXoyP4InI76EL2Y6ik@containers-us-west-178.railway.app:6147/railway"
+DATABASE_URL = "postgresql://postgres:6wI3QOdAGDHZ4YkjjFJl@containers-us-west-160.railway.app:7234/railway"
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 DATE_INPUT_FORMATS = ['%d.%m.%Y']

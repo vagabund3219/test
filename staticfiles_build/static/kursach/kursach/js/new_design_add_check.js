@@ -59,6 +59,9 @@ export async function addCheckForm(){
                     const reader = new FileReader();
                     reader.addEventListener('load', (event) => {
                         const result = event.target.result;
+
+                        console.log(result, 'result')
+
                         sendCheck(result)
                     });
                 reader.readAsDataURL(filee);
@@ -73,8 +76,11 @@ export async function addCheckForm(){
     async function sendCheck(par){
         const url = 'https://proverkacheka.com/api/v1/check/get';
         // const token = '17072.ReLJYknAYHiPk5ohg';
-        const token = '17975.feEzZQlH2W8acWoqk';
-        fetch('http://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
+        // const token = '17975.feEzZQlH2W8acWoqk';
+        const token = '18476.J6BXgVvPGjcrDhbys';
+
+        // fetch('http://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
+        fetch('https://api.qrserver.com/v1/read-qr-code/?fileurl=https://htstatic.imgsmail.ru/pic_image/fc79efd29b1466f5f2054ab6f31802d7/840/1120/1968415/')
             .then(res => res.json())
             .then(res => {
                 const checkResponse = res[0]['symbol'][0]['data']
@@ -82,8 +88,8 @@ export async function addCheckForm(){
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", url);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.setRequestHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-                xhr.setRequestHeader("Origin", "127.32.23.3:8080");
+                // xhr.setRequestHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+                // xhr.setRequestHeader("Origin", "127.32.23.3:8080");
 
 
 

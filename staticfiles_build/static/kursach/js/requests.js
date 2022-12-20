@@ -1,6 +1,8 @@
 import {dangerAlert, successAlert} from "./alerts.js";
 
-export const url = 'http://127.0.0.1:8000/api/v1/';
+// export const url = 'http://127.0.0.1:8000/api/v1/';
+// export const url = 'https://test19-hwht593ms-vagabund3219.vercel.app/';
+export const url = 'https://test19-ebon.vercel.app/api/v1/';
 export const checkApiUrl = 'CheckApiList';
 export const transApiUrl = 'TransactionsApiList';
 export const CategoriesApiList = 'CategoriesApiList';

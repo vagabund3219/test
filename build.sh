@@ -4,7 +4,7 @@
 
 echo "build start"
 
-python3.9 -m -pip install -r requirements.txt
+pip install -r requirements.txt
 
 echo "migrations start"
 python3.9 manage.py makemigrations --noinput
